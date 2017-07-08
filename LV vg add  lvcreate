@@ -1,0 +1,9 @@
+QUICK VG LV AND FS CREATE
+
+vgcreate vg_itm /dev/sdg
+lvcreate -L 5G -n itmlv vg_itm
+mkfs -t ext3 /dev/vg_itm/itmlv
+mkdir /opt/monitor/IBM
+mount /dev/vg_itm/itmlv /opt/monitor/IBM
+chmod 777 /opt/monitor/IBM
+echo "/dev/vg_itm/itmlv  /opt/monitor/IBM    ext3    _netdev,defaults  1  2" >> /etc/fstab
