@@ -1,0 +1,19 @@
+#!/bin/bash
+# SCRIPT: wj_ipaservers.bsh
+#
+# AUTHOR: Ward Johnson
+# DATE:   4/12/2016
+# PLATFORM:
+# PURPOSE:  check /etc/sssd/sssd.conf and outputs to file
+
+# set -n # Uncomment to chek script syntax without execution
+# set -x # Uncomment to debug this script
+####################################################
+#Beginning of Script
+####################################################
+while read -r host in $(cat wjipahosts)
+do      ssh $host <<-EOF
+                ipa_server=$(awk 'awk commands to extract ipahostname' /etc/sssd/sssd.conf)
+                printf 'host: %s ipahost: %s\n'"(hostname)" "$ipaserver"
+        EOF
+done < wjipahosts > wj_ipa_servers_output
