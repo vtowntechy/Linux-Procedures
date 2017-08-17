@@ -1,0 +1,13 @@
+OUTPUT TO FILE
+<root@uinf701p:~> # cat wj_output.bsh
+#!/bin/bash
+for x in `cat wj_last`; do echo $x>>wj_output.txt; ssh $x "grep 'uinf021p\|uinf035p\|uinf115p' /etc/sssd/sssd.conf">>wj_output.txt
+done
+<root@uinf701p:~> #
+
+OUTPUT TO SCREEN
+<root@uinf701p:~> # cat wj_stacy.bsh
+#!/bin/bash
+for x in `cat wjipaservers2`; do echo $x; ssh $x "grep 'uinf021p\|uinf035p\|uinf115p' /etc/sssd/sssd.conf"
+done
+<root@uinf701p:~> #
