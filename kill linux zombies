@@ -1,0 +1,29 @@
+PROBLEM: 703 Zombie Processes
+
+1.FIND ZOMBIE PROCESSES:
+ 	ps axo stat,ppid,pid,comm | grep -w defunct>>file1
+
+
+2. COPY ZOMBIE PROCESSES TO FILE1( SKIP)
+	vi file1 and copy and paste output
+	
+3. SORT PROCESSES USING AWK AND SEND TO OTHER FILE
+	
+ 
+
+
+
+SORT COLUMN 2 to file2
+
+Z    25623  4941 nsupdate <defunct>
+Z    55371  4951 nsupdate <defunct>
+Z    15841  4958 nsupdate <defunct>
+Z    35176  4978 nsupdate <defunct>
+
+4. KILL ZOMBIE PROCESSES VIA SCRIPT
+
+
+for i in $(cat file2)
+> do
+> kill -9 $i
+> done
